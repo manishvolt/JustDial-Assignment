@@ -1,10 +1,8 @@
 package StepDefs;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import PageObjects.CmnObjects;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,8 +13,6 @@ public class StepDefinition {
 	String url="https://www.justdial.com/";
 	WebDriver driver;
 	CmnObjects commonobjects;
-	
-	
 	
 	@Given("user launches the url")
 	public void user_launches_the_url() {
@@ -32,8 +28,8 @@ public class StepDefinition {
 
 	@Given("user clicks on signup button")
 	public void user_clicks_on_signup_button(){
-		
-	    commonobjects.Signup();
+		commonobjects=new CmnObjects(driver);
+		 commonobjects.Signup();
 		// Write code here that turns the phrase above into concrete actions
 	    
 	}

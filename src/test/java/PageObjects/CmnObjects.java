@@ -3,6 +3,8 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CmnObjects {
 
@@ -19,7 +21,9 @@ public class CmnObjects {
    
    
    public void Signup(){
-	  driver.findElement(SignUp);
+	  WebDriverWait webdriverwait=new WebDriverWait(driver,20);
+	  WebElement signup= webdriverwait.until(ExpectedConditions.elementToBeClickable(SignUp));
+	  signup.click();
    }
    
    public void UserName(){
