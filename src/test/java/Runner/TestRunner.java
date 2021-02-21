@@ -7,13 +7,17 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-
 		features="classpath:Feature",
 		glue="StepDefs",
-		tags="",
-		plugin={"pretty","html:target/html/","json:target/json/file.json"},
-		dryRun=false
-)
+		tags="@table",
+		dryRun=false,
+		monochrome=true,
+		publish=true,
+		plugin={"pretty","html:target/html/report/report.html",}
+		)
+
+
 
 public class TestRunner {
+
 }
