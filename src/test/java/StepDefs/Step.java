@@ -3,6 +3,7 @@ package StepDefs;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -82,8 +83,15 @@ public void fetch_price_of_nestle_india() {
 
 @After(order=2)
 public void ScreenShot(Scenario scn){
-	TakesScreenshot a=getScreenshot
+	if(scn.isFailed()){
+		TakesScreenshot s=(TakesScreenshot)driver;
+		byte[] data=s.getScreenshotAs(OutputType.BYTES);
+		scn.attach(data, "image/png", "failed step " + scn.getName());
+	}
 	
+	else{
+		scn.log("test case passed");
+	}
 }
 
 @After(order=1)
