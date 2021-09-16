@@ -9,11 +9,11 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features="classpath:Feature",
 		glue="StepDefs",
-		tags="@table",
+		tags="",
 		dryRun=false,
 		monochrome=true,
 		publish=true,
-		plugin={"pretty","html:target/html/report/report.html",}
+		plugin={"pretty","html:target/html/report/report.html", "json:target/json/file.json"}
 		)
 
 
